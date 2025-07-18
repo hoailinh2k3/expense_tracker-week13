@@ -1,0 +1,74 @@
+📦 project_root
+├── 📁 lib
+│   ├── 📄 main.dart                   # Entry point, khởi tạo App, Provider
+│   ├── 📄 app.dart                    # Thiết lập MaterialApp, routes, theme
+│   │
+│   ├── 📁 core                        # Các lớp/chức năng chung
+│   │   ├── 📁 constants               # Các hằng số (API keys, route names…)
+│   │   ├── 📁 error                   # Định nghĩa Failure, Exception
+│   │   ├── 📁 network                 # Kiểm tra kết nối, NetworkInfo
+│   │   └── 📁 services                # Service layer
+│   │       ├── auth_service.dart      # Xác thực Firebase
+│   │       ├── permission_service.dart# Quản lý permissions
+│   │       ├── camera_service.dart    # Logic camera/image_picker
+│   │       ├── sensor_service.dart    # Đọc data từ sensors_plus
+│   │       └── sync_service.dart      # Đồng bộ 2 chiều SQLite ↔ Firestore
+│   │
+│   ├── 📁 data                        # Data layer: model, datasource, repository impl
+│   │   ├── 📁 models
+│   │   │   ├── expense_model.dart     # fields, fromJson/toJson
+│   │   │   └── user_model.dart
+│   │   │
+│   │   ├── 📁 datasources
+│   │   │   ├── 📁 local
+│   │   │   │   └── expense_local_ds.dart
+│   │   │   └── 📁 remote
+│   │   │       ├── expense_remote_ds.dart
+│   │   │       └── auth_remote_ds.dart
+│   │   │
+│   │   └── 📁 repositories
+│   │       ├── auth_repository_impl.dart
+│   │       └── expense_repository_impl.dart
+│   │
+│   ├── 📁 domain                      # Domain layer: entities & interface repo
+│   │   ├── 📁 entities
+│   │   │   ├── expense.dart           # thuần dữ liệu
+│   │   │   └── user.dart
+│   │   │
+│   │   └── 📁 repositories
+│   │       ├── auth_repository.dart   # interface
+│   │       └── expense_repository.dart
+│   │
+│   ├── 📁 viewmodels                  # Chứa ChangeNotifier
+│   │   ├── auth_view_model.dart
+│   │   └── expense_view_model.dart
+│   │
+│   ├── 📁 presentation                # UI layer: screens & re-usable widgets
+│   │   ├── 📁 screens
+│   │   │   ├── login_screen.dart
+│   │   │   ├── register_screen.dart
+│   │   │   ├── expense_list_screen.dart
+│   │   │   └── add_edit_expense_screen.dart
+│   │   │
+│   │   ├── 📁 widgets
+│   │   │   └── expense_item_widget.dart
+│   │   │
+│   │   ├── routes.dart                # Định nghĩa named routes
+│   │   └── theme.dart                 # AppTheme, colors, text styles
+│   │
+│   └── 📁 utils                       # Các hàm tiện ích (format date, validation…)
+│       └── date_time_utils.dart
+│
+├── 📁 assets
+│   ├── 📁 images                      # Avatar, icons mặc định…
+│   └── 📁 fonts
+│
+├── 📁 test
+│   ├── 📁 unit
+│   │   ├── viewmodels
+│   │   └── repositories
+│   └── 📁 widget
+│       └── screens
+│
+├── 📄 pubspec.yaml
+└── 📄 analysis_options.yaml
